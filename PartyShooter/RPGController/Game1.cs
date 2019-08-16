@@ -1,16 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
-using Android.App;
 using Android.Content;
 using Android.Views;
 using Android.Views.InputMethods;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input.Touch;
 
 namespace RPGController
 {
@@ -30,6 +22,10 @@ namespace RPGController
 
         private Texture2D _pixel;
 
+        private Button _button;
+        private bool _flipFlop = false;
+        private ButtonContainer _buttonContainer;
+
         public Game1(Context activity1)
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -45,6 +41,12 @@ namespace RPGController
             _context = activity1;
             _view = (View)Services.GetService(typeof(View));
             _inputMethodManager = activity1.GetSystemService(Context.InputMethodService) as InputMethodManager;
+
+            _buttonContainer = new ButtonContainer();
+
+            _buttonContainer.Add((int) (_graphics.PreferredBackBufferWidth * 0.75f), (int) (_graphics.PreferredBackBufferHeight * 0.25f),
+                                 (int) (_graphics.PreferredBackBufferWidth * 0.95f), (int) (_graphics.PreferredBackBufferHeight * 0.75f),
+                                 "Hello!", () => { _flipFlop = !_flipFlop; });
         }
 
         protected override void Initialize()
@@ -58,10 +60,8 @@ namespace RPGController
             // Create a new SpriteBatch, which can be used to draw textures.
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            _pixel = new Texture2D(GraphicsDevice, 1, 1);
-            _pixel.SetData(new[] { Color.White });
 
-            DebugDrawer.Init(_spriteBatch, Content);
+            DebugDrawer.Init(_spriteBatch, Content, GraphicsDevice);
         }
 
         protected override void Update(GameTime gameTime)
@@ -70,6 +70,8 @@ namespace RPGController
 
             _joyStick.CheckForTouch();
             _joyStick.UpdateDirection();
+
+            _buttonContainer.Update();
 
         }
 
@@ -81,12 +83,13 @@ namespace RPGController
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(_flipFlop ? Color.CornflowerBlue : Color.Green);
 
             _spriteBatch.Begin(blendState: BlendState.NonPremultiplied);
 
             _joyStick.Draw();
 
+            _buttonContainer.Draw();
          
             _spriteBatch.End();
 
