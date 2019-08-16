@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game", "RPGParty\Game.cspro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phone", "RPGController\Phone.csproj", "{EC9F380B-DA7E-4409-9A68-55429A1B9F42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "Library\Library.csproj", "{ECF19289-9CFF-4D07-AEC7-27F92C909F7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +36,14 @@ Global
 		{EC9F380B-DA7E-4409-9A68-55429A1B9F42}.Release|x86.ActiveCfg = Release|Any CPU
 		{EC9F380B-DA7E-4409-9A68-55429A1B9F42}.Release|x86.Build.0 = Release|Any CPU
 		{EC9F380B-DA7E-4409-9A68-55429A1B9F42}.Release|x86.Deploy.0 = Release|Any CPU
+		{ECF19289-9CFF-4D07-AEC7-27F92C909F7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECF19289-9CFF-4D07-AEC7-27F92C909F7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECF19289-9CFF-4D07-AEC7-27F92C909F7F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{ECF19289-9CFF-4D07-AEC7-27F92C909F7F}.Debug|x86.Build.0 = Debug|Any CPU
+		{ECF19289-9CFF-4D07-AEC7-27F92C909F7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECF19289-9CFF-4D07-AEC7-27F92C909F7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECF19289-9CFF-4D07-AEC7-27F92C909F7F}.Release|x86.ActiveCfg = Release|Any CPU
+		{ECF19289-9CFF-4D07-AEC7-27F92C909F7F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
